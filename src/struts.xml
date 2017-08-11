@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.ui.theme" value="simple"></constant>
+
+<package name="default" extends="struts-default" namespace="/">
+	<action name="book*" method="{1}" class="bookspring">
+		<result name="client">clientHouse.jsp</result>
+		<result name="success" type="redirect">admin/bookinfo.jsp</result>
+		<result name="search">user/mutilchoice.jsp</result>
+	</action>
+	
+	<action name="login" class="com.zzz.bookstore.action.LoginAction">
+		<result name="admin">admin/main.jsp</result>
+		<result name="user">user/main.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+	
+		<action name="orders*" method="{1}" class="com.zzz.bookstore.action.OrdersAction">
+		<result name="success">admin/admin.jsp</result>
+		<result name="order">user/orders.jsp</result>
+		<result name="userdelete">user/orders.jsp</result>
+		<result name="one">admin/updateorder.jsp</result>
+	</action>
+	
+	
+	</package>
+	
+
+</struts>    
